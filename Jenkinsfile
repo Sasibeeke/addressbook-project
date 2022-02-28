@@ -52,7 +52,7 @@ pipeline {
        stage('Deploy Application with Tomcat Server using Ansible') {
             steps {
                 echo 'Addressbook Project Deployment with Tomcat Server using Ansible'
-                
+            }
         }
     }
 }
