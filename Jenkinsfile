@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Addressbook Project GitHub Repository Code Checkout'
                 // Get some code from a GitHub repository
-                git 'https://github.com/swagat030/addressbook.git'
+                git 'https://github.com/Sasibeeke/addressbook-project.git'
                 
             }
         }
@@ -52,8 +52,7 @@ pipeline {
        stage('Deploy Application with Tomcat Server using Ansible') {
             steps {
                 echo 'Addressbook Project Deployment with Tomcat Server using Ansible'
-                ansiblePlaybook credentialsId: 'ansible-private-key', disableHostKeyChecking: true, installation: 'my-ansible', inventory: 'hosts.inv', playbook: 'deployment.yaml'
-            }
+                
         }
     }
 }
