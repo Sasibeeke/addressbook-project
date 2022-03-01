@@ -14,7 +14,7 @@
     service:
       name: tomcat9
       state: started
-      enabled: true
+      enable: true
 
   - name: Deploy Addressbook Application in Tomcat Server
     copy:
