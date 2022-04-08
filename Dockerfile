@@ -3,8 +3,7 @@ mkdir docker-jenkins-build
 cd docker-jenkins-build
 cp /var/lib/jenkins/workspace/addressbook-project/target/addressbook.war .
 
-touch Dockerfile
-cat <<EOT>>Dockerfile
+
 FROM tomcat
 ADD addressbook.war /usr/local/tomcat/webapps
 CMD "catalina.sh" "run"
