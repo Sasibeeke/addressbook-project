@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/adressbook.war adressbook.war
+ADD target/addressbook.war addressbook.war
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "adressbook.war"]
