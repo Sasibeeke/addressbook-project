@@ -1,7 +1,7 @@
 rm -rf docker-jenkins-build
 mkdir docker-jenkins-build
 cd docker-jenkins-build
-cp /var/lib/jenkins/workspace/Addressbook-CICD-Pipeline/target/addressbook.war .
+cp /var/lib/jenkins/workspace/addressbook-project/target/addressbook.war .
 
 touch Dockerfile
 cat <<EOT>>Dockerfile
