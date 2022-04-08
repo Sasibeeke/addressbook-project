@@ -58,9 +58,26 @@ pipeline {
          stage('Deploy Application with Docker Container') {
             steps {
                 echo 'Addressbook Project Deployment with Docker Container '
-                sh "docker build -f Dockerfile -t addressbook-image ."
-                sh "docker images"
-                sh "docker container run -d --name addressbook-app -P addressbook-image"
+               // sh "docker build -f Dockerfile -t addressbook-image ."
+              //  sh "docker images"
+              //  sh "docker container run -d --name addressbook-app -P addressbook-image"
+                
+               sh "rm -rf docker-jenkins-build"
+               sh "mkdir docker-jenkins-build"
+              sh  "cd docker-jenkins-build"
+              sh  "cp /var/lib/jenkins/workspace/Addressbook-CICD-Pipeline/target/addressbook.war ."
+
+               sh "touch Dockerfile"
+               sh "cat <<EOT>>Dockerfile"
+              sh  "FROM tomcat"
+              sh  "ADD addressbook.war /usr/local/tomcat/webapps"
+              sh  "CMD catalina.sh run"
+              sh  "EXPOSE 8080"
+               sh "EOT"
+
+              sh  "sudo docker image build -t sahosoftdevops/deployimage:$BUILD_NUMBER ."
+
+              sh  "sudo docker container run -itd --name=FP-$BUILD_NUMBER -P sahosoftdevops/deployimage:$BUILD_NUMBER"
             }
         }
         
