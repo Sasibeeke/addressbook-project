@@ -65,7 +65,7 @@ pipeline {
                sh "rm -rf docker-jenkins-build"
                sh "mkdir docker-jenkins-build"
               sh  "cd docker-jenkins-build"
-              sh  "cp /var/lib/jenkins/workspace/Addressbook-CICD-Pipeline/target/addressbook.war ."
+              sh  "cp /var/lib/jenkins/workspace/addressbook-project/target/addressbook.war ."
 
                sh "touch Dockerfile"
                sh "cat <<EOT>>Dockerfile"
